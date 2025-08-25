@@ -804,7 +804,6 @@ body {
     object-fit: cover;
     border-radius: 12px;
     height: 300px;
-    /* Set consistent height */
 }
 
 .dots {
