@@ -222,6 +222,7 @@ body {
     padding: 80px 0 40px 0;
     background: #f5f7fa;
     text-align: center;
+    height: 90%;
 }
 
 .galerie h2 {
@@ -236,7 +237,6 @@ body {
     max-width: 90%;
     margin: 0 auto;
     overflow: hidden;
-    height: 90%;
 }
 
 .slides {
