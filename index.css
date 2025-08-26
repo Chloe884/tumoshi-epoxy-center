@@ -859,9 +859,9 @@ body {
  /* Style de base */
 
 .navbar {
-  background: #333;
+  background: #fff;
   padding: 1rem;
-  color: #fff;
+  color: #1e3c72;
 }
 
 .navbar-container {
