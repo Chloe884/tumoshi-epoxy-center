@@ -577,6 +577,46 @@ body {
         left: 0;
         bottom: -4px;
     }
+            .menu-btn {
+            position: absolute;
+            top: 22px;
+            right: 22px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 55px;
+            right: 22px;
+            background: rgba(30,30,30,0.97);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+            min-width: 180px;
+            z-index: 20;
+            overflow: hidden;      /* <-- ajoute cette ligne pour forcer le contenu à rester dans les bords arrondis */
+        }
+        .dropdown-menu button, .dropdown-menu a {
+            display: block;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            text-align: left;
+            padding: 14px 22px; /* augmente un peu le padding ici */
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.18s;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        .dropdown-menu button:hover, .dropdown-menu a:hover {
+            background: #007A5E;
+        }
 
     @media (max-width: 900px) {
         .navbar-container {
@@ -599,13 +639,6 @@ body {
         width: 100%;
         max-width: 100%;
     }
-     #menuToggle {
-        margin-left: 100%;   /* pousse le bouton complètement à droite */
-        display: none;       /* reste caché par défaut */
-        font-size: 26px;
-        cursor: pointer;
-        color: white;
-}
 }
 
 /* Diaporama automatique */
