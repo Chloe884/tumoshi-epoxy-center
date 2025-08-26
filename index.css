@@ -232,7 +232,7 @@ body {
 
 .slider {
     position: relative;
-    width: 90%;
+    width: 800px;
     max-width: 90%;
     margin: 0 auto;
     overflow: hidden;
