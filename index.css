@@ -6,77 +6,81 @@ body {
     min-height: 100vh;
 }
 
+/* ---------------- NAVBAR ---------------- */
 .navbar {
-    background: #fff;
-    box-shadow: 0 2px 16px rgba(30, 60, 114, 0.07);
-    position: fixed;
-    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    position: sticky;
     top: 0;
-    left: 0;
-    z-index: 100;
-    height: 90px;
-    /* barre moins haute */
-    display: flex;
-    align-items: center;
+    z-index: 1000;
 }
 
 .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    height: 90px;
-    padding: 0 24px;
+    align-items: center;
 }
 
 .logo img {
-    height: 90px;
-    /* logo */
-    display: block;
+    height: 50px;
 }
 
-.nav-links {
-    margin-left: auto;
-}
-
+/* Liens par défaut (grand écran) */
 .nav-links ul {
-    list-style: none;
     display: flex;
-    gap: 22px;
-    /* menu*/
+    gap: 20px;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .nav-links a {
+    color: white;
     text-decoration: none;
-    color: #1e3c72;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 8px 0;
-    position: relative;
-    transition: color 0.2s;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
-    color: #FFD700;
+.nav-links a:hover {
+    color: #ff6600;
 }
 
-.nav-links a.active::after,
-.nav-links a:hover::after {
-    content: "";
-    display: block;
-    height: 3px;
-    width: 100%;
-    background: #FFD700;
-    border-radius: 2px;
-    position: absolute;
-    left: 0;
-    bottom: -4px;
+/* Bouton ⋮ (mobile seulement) */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    user-select: none;
+    color: white;
 }
+
+/* ------- Responsive ------- */
+@media (max-width: 768px) {
+    /* cacher les liens */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #444;
+        padding: 1rem;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* afficher quand actif */
+    .nav-links.show {
+        display: flex;
+    }
+
+    /* afficher ⋮ */
+    .menu-toggle {
+        display: block;
+    }
+}
+
 
 .hero {
     min-height: 100vh;
