@@ -4,38 +4,34 @@ document.addEventListener("DOMContentLoaded", function () {
   if (heroContent) {
     heroContent.style.opacity = "0";
     heroContent.style.transform = "translateY(-60px)";
-    void heroContent.offsetWidth; // forcer reflow
+    void heroContent.offsetWidth;
     heroContent.style.animation =
       "slideDown 1s cubic-bezier(.77,0,.18,1) forwards";
   }
 
-  // ------------------ Diaporama Principal ------------------
-const slides = document.querySelectorAll(".slide");
-let currentSlide = 0;
+  // ------------------ Diaporama principal ------------------
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
 
-function showSlide(idx) {
+  function showSlide(idx) {
     slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === idx);
+      slide.style.display = i === idx ? "block" : "none";
     });
-}
+  }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
+  if (slides.length > 0) {
     showSlide(currentSlide);
-}
-
-if (slides.length > 0) {
-    showSlide(currentSlide);
-    setInterval(nextSlide, 3500);
-}
-
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 3500);
+  }
 
   // ------------------ Modales Services ------------------
   const serviceCards = document.querySelectorAll(".service-card");
   const modals = document.querySelectorAll(".service-modal");
   const closeButtons = document.querySelectorAll(".close");
 
-  // Ouvrir la modale correspondante
   serviceCards.forEach((card, index) => {
     card.addEventListener("click", () => {
       const modal = document.getElementById(`modal-service${index + 1}`);
@@ -43,7 +39,6 @@ if (slides.length > 0) {
     });
   });
 
-  // Fermer la modale via la croix
   closeButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const modal = btn.closest(".service-modal");
@@ -51,7 +46,6 @@ if (slides.length > 0) {
     });
   });
 
-  // Fermer la modale si clic en dehors du contenu
   window.addEventListener("click", (e) => {
     modals.forEach((modal) => {
       if (e.target === modal) modal.style.display = "none";
@@ -66,7 +60,6 @@ if (slides.length > 0) {
     const dotsContainer = slider.querySelector(".dots");
     let current = 0;
 
-    // Créer les points
     dotsContainer.innerHTML = "";
     images.forEach((_, i) => {
       const dot = document.createElement("span");
@@ -92,23 +85,16 @@ if (slides.length > 0) {
       updateSlider();
     }
 
-    // Auto-advance slides
     setInterval(nextSlideGallery, 4000);
-
-    // Update on window resize
     window.addEventListener("resize", updateSlider);
-
-    // Initial update
     updateSlider();
   }
 
-  // ------------------ Menu Hamburger Responsive ------------------
+  // ------------------ Menu déroulant responsive ------------------
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-  }
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
 });
