@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "slideDown 1s cubic-bezier(.77,0,.18,1) forwards";
   }
 
-  // ------------------ Diaporama ------------------
+  // ------------------ Diaporama Principal ------------------
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dotsContainer = slider.querySelector(".dots");
     let current = 0;
 
-    // Clear existing dots and create new ones
+    // Créer les points
     dotsContainer.innerHTML = "";
     images.forEach((_, i) => {
       const dot = document.createElement("span");
@@ -82,9 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateSlider() {
       const slideWidth = slider.clientWidth;
-      slidesContainer.style.transform = `translateX(-${
-        current * slideWidth
-      }px)`;
+      slidesContainer.style.transform = `translateX(-${current * slideWidth}px)`;
       dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
     }
 
@@ -102,13 +100,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initial update
     updateSlider();
   }
-  document.addEventListener("DOMContentLoaded", () => {
+
+  // ------------------ Menu Hamburger Responsive ------------------
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
 
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
-});
-
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  }
 });
