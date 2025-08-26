@@ -475,67 +475,76 @@ body {
     
 }
 /* ===========================================
-   HERO / DIAPORAMA PRINCIPAL HORIZONTAL
+   HERO HORIZONTAL AVEC MENU 2x2
 =========================================== */
 .hero-horizontal {
     display: flex;
-    align-items: center;          /* aligne verticalement */
-    justify-content: space-between; /* espace entre les éléments */
+    align-items: center;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
-    gap: 20px;
+    padding: 20px 40px;
+    gap: 30px;
 }
 
+/* Logo */
 .hero-horizontal .logo img {
-    width: 120px;        /* taille moyenne et harmonieuse */
+    width: 100px;
     height: auto;
     object-fit: contain;
-    border-radius: 8px;  /* arrondi esthétique */
+    border-radius: 8px;
 }
 
-.hero-horizontal .hero-text {
-    flex: 1;             /* prend tout l’espace restant */
+/* Bloc Liens */
+.hero-horizontal ul {
+    display: grid;
+    grid-template-columns: repeat(2, auto); /* 2 colonnes */
+    gap: 12px 30px; /* espace vertical et horizontal */
+    list-style: none;
+    padding: 0;
+    margin: 0;
     text-align: center;
+}
+
+.hero-horizontal ul li a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
     color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: 0.3s;
 }
 
-.hero-horizontal .hero-text h1 {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
+.hero-horizontal ul li a:hover {
+    background: rgba(255,255,255,0.15);
+    color: #ffd700;
 }
 
-.hero-horizontal .hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-}
-
+/* Image */
 .hero-horizontal .hero-image img {
-    width: 220px;       /* taille moyenne et harmonieuse */
+    width: 160px;
     height: auto;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
-/* Responsive pour écran moyen et petit */
-@media (max-width: 1024px) {
+/* Responsive : sur mobile ça repasse en colonne */
+@media (max-width: 768px) {
     .hero-horizontal {
-        flex-direction: column; /* empile verticalement */
+        flex-direction: column;
+        gap: 20px;
         text-align: center;
+    }
+
+    .hero-horizontal ul {
+        grid-template-columns: 1fr; /* une seule colonne */
+        gap: 10px;
     }
 
     .hero-horizontal .logo img,
     .hero-horizontal .hero-image img {
-        width: 160px;
-        margin-bottom: 16px;
-    }
-
-    .hero-horizontal .hero-text h1 {
-        font-size: 2rem;
-    }
-
-    .hero-horizontal .hero-text p {
-        font-size: 1rem;
+        width: 120px;
     }
 }
 
