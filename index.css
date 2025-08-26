@@ -527,15 +527,13 @@ body {
         z-index: 100;
     }
 
-    .navbar-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 80px;
-        padding: 0 40px;
-    }
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* espace entre logo et bouton/menu */
+  align-items: center;
+  width: 100%;
+}
+
 
     .logo img {
         height: 88px;
