@@ -110,8 +110,5 @@ document.addEventListener("DOMContentLoaded", function () {
     navLinks.classList.toggle("show");
   });
 });
- var menu = document.getElementById('dropdownMenu');
-            if (event.target !== menu && !menu.contains(event.target) && event.target.className !== 'menu-btn') {
-                menu.style.display = "none";
-            }
+
 });
