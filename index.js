@@ -10,20 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ------------------ Diaporama principal ------------------
-  const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+  const heroSlides = document.querySelectorAll(".slideshow-container .slide");
+  let currentHeroSlide = 0;
 
-  function showSlide(idx) {
-    slides.forEach((slide, i) => {
+  function showHeroSlide(idx) {
+    heroSlides.forEach((slide, i) => {
       slide.style.display = i === idx ? "block" : "none";
     });
   }
 
-  if (slides.length > 0) {
-    showSlide(currentSlide);
+  if (heroSlides.length > 0) {
+    showHeroSlide(currentHeroSlide);
     setInterval(() => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
+      currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+      showHeroSlide(currentHeroSlide);
     }, 3500);
   }
 
