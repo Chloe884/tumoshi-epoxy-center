@@ -527,13 +527,15 @@ body {
         z-index: 100;
     }
 
-.navbar-container {
-  display: flex;
-  justify-content: space-between; /* espace entre logo et bouton/menu */
-  align-items: center;
-  width: 100%;
-}
-
+    .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+        padding: 0 40px;
+    }
 
     .logo img {
         height: 88px;
@@ -575,6 +577,13 @@ body {
         left: 0;
         bottom: -4px;
     }
+    #menuToggle {
+        margin-left: auto;   /* pousse le bouton complètement à droite */
+        display: none;       /* reste caché par défaut */
+        font-size: 26px;
+        cursor: pointer;
+        color: white;
+}
 
     @media (max-width: 900px) {
         .navbar-container {
