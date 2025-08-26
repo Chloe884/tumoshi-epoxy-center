@@ -10,24 +10,25 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ------------------ Diaporama Principal ------------------
-  const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
 
-  function showSlide(idx) {
+function showSlide(idx) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === idx);
+        slide.classList.toggle("active", i === idx);
     });
-  }
+}
 
-  function nextSlide() {
+function nextSlide() {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
-  }
+}
 
-  if (slides.length > 0) {
+if (slides.length > 0) {
     showSlide(currentSlide);
     setInterval(nextSlide, 3500);
-  }
+}
+
 
   // ------------------ Modales Services ------------------
   const serviceCards = document.querySelectorAll(".service-card");

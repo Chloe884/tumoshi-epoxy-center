@@ -1,6 +1,4 @@
-/* ===========================================
-   RESET & GLOBAL
-=========================================== */
+/* ======= Global ======= */
 body {
     margin: 0;
     padding: 0;
@@ -9,9 +7,17 @@ body {
     min-height: 100vh;
 }
 
-/* ===========================================
-   NAVBAR
-=========================================== */
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ======= Navbar ======= */
 .navbar {
     background: #fff;
     box-shadow: 0 2px 16px rgba(30, 60, 114, 0.07);
@@ -32,8 +38,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
     height: 90px;
+    padding: 0 24px;
 }
 
 .logo img {
@@ -41,20 +47,17 @@ body {
     display: block;
 }
 
+/* Menu desktop */
 .nav-links {
     margin-left: auto;
 }
 
 .nav-links ul {
-    list-style: none;
     display: flex;
     gap: 22px;
-    margin: 0;
-    padding: 0;
 }
 
 .nav-links a {
-    text-decoration: none;
     color: #1e3c72;
     font-weight: 600;
     font-size: 1.1rem;
@@ -81,20 +84,56 @@ body {
     bottom: -4px;
 }
 
-/* Menu bouton hamburger */
+/* Menu mobile */
 .menu-btn {
     display: none;
     background: none;
     border: none;
     font-size: 2em;
     cursor: pointer;
-    color: #1e3c72;
-    z-index: 1001;
+    z-index: 10;
 }
 
-/* ===========================================
-   HERO
-=========================================== */
+.dropdown-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: #fff;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 200px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+.dropdown-menu li {
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #1e3c72;
+    font-weight: 600;
+}
+
+.dropdown-menu a:hover {
+    background: #00A651;
+    color: #fff;
+}
+
+/* ======= Hero ======= */
 .hero {
     min-height: 100vh;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -117,15 +156,17 @@ body {
 }
 
 @keyframes slideDown {
-    to { opacity: 1; transform: translateY(0);}
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-content h1 {
     color: #1e3c72;
     font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 18px;
-    margin-top: 0;
+    margin: 0 0 18px;
     letter-spacing: 1.5px;
 }
 
@@ -137,7 +178,6 @@ body {
 
 .cta-btn {
     display: inline-block;
-    text-decoration: none;
     color: #fff;
     background: #1e3c72;
     padding: 16px 36px;
@@ -153,31 +193,80 @@ body {
     transform: translateY(-2px) scale(1.03);
 }
 
-/* ===========================================
-   SERVICES
-=========================================== */
-.services {
-    padding: 80px 0 40px 0;
-    background: #fff;
-    text-align: center;
+/* ======= Diaporama Hero ======= */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    margin-top: 90px;
 }
 
-.services h2 {
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slideshow-caption {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 2px 8px #0007;
+}
+
+/* ======= Sections ======= */
+.services, .galerie, .avis, .contact {
+    padding: 80px 0 40px 0;
+    text-align: center;
+    background: #fff;
+}
+
+.services h2, .galerie h2, .avis h2, .contact h2 {
     color: #1e3c72;
     font-size: 2.2rem;
     margin-bottom: 40px;
 }
 
-.services-list {
+.services-list, .avis-list, .galerie-list {
     display: flex;
     justify-content: center;
     gap: 36px;
     flex-wrap: wrap;
 }
 
+.service-card, .avis-card, .galerie-list img {
+    border-radius: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
 .service-card {
     background: #ebebec;
-    border-radius: 14px;
     box-shadow: 0 2px 12px rgba(30, 60, 114, 0.07);
     padding: 32px 24px;
     width: 300px;
@@ -186,7 +275,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .service-card:hover {
@@ -200,39 +288,67 @@ body {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 18px;
-    box-shadow: 0 2px 8px rgba(30, 60, 114, 0.08);
 }
 
-.service-card h3 {
-    color: #1e3c72;
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+/* Galerie modale et grid */
+.service-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-.service-card p {
-    color: #444;
-    font-size: 1rem;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
-/* ===========================================
-   GALERIE
-=========================================== */
-.galerie {
-    padding: 80px 0 40px 0;
-    background: #f5f7fa;
-    text-align: center;
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
 }
 
-.galerie h2 {
-    color: #1e3c72;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
+.close:hover {
+    color: #1d3557;
 }
 
+.service-modal .modal-content .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 0;
+    width: 100%;
+}
+
+.service-modal .modal-content .gallery img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+.service-modal .modal-content .gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Slider galerie */
 .slider {
     position: relative;
     width: 75%;
@@ -274,64 +390,12 @@ body {
     background-color: #1e3c72;
 }
 
-/* ===========================================
-   AVIS
-=========================================== */
-.avis {
-    padding: 80px 0 40px 0;
-    background: #fff;
-    text-align: center;
-}
-
-.avis h2 {
-    color: #1e3c72;
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-}
-
-.avis-list {
-    display: flex;
-    justify-content: center;
-    gap: 36px;
-    flex-wrap: wrap;
-}
-
-.avis-card {
-    background: #f5f7fa;
-    border-radius: 14px;
-    box-shadow: 0 2px 12px rgba(30, 60, 114, 0.07);
-    padding: 32px 24px;
-    width: 320px;
-    text-align: center;
-    font-style: italic;
-}
-
-.avis-card p {
-    color: #444;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-}
-
-.avis-card span {
-    color: #00A651;
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-/* ===========================================
-   FOOTER
-=========================================== */
+/* ======= Footer ======= */
 .footer {
     background: #1e3c72;
     color: #fff;
     text-align: center;
     padding: 24px 0;
-    font-size: 1rem;
-    margin-top: 40px;
-}
-
-.footer-socials {
-    margin-bottom: 12px;
 }
 
 .footer-socials a {
@@ -356,120 +420,10 @@ body {
     filter: none;
 }
 
-/* ===========================================
-   MODALES SERVICES
-=========================================== */
-.service-modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    background-color: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 800px;
-    position: relative;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.close:hover {
-    color: #1d3557;
-}
-
-.service-modal .modal-content .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.service-modal .modal-content .gallery img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    display: block;
-    border-radius: 4px;
-    transition: transform 0.3s ease;
-}
-
-.service-modal .modal-content .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-/* ===========================================
-   RESPONSIVE
-=========================================== */
+/* ======= Responsive ======= */
 @media (max-width: 1024px) {
-    .service-modal .modal-content .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 4px;
+        .service-modal .modal-content .gallery {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
+        }
     }
-}
-
-@media (max-width: 768px) {
-    /* Navbar */
-    .menu-btn { display: block; }
-    .nav-links ul {
-        flex-direction: column;
-        position: absolute;
-        top: 64px;
-        right: 0;
-        width: 220px;
-        display: none;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-        padding: 10px 0;
-        z-index: 1000;
-    }
-
-    .nav-links ul.show { display: flex; animation: slideDownMenu 0.3s ease forwards; }
-
-    .nav-links ul li a {
-        display: block;
-        padding: 12px 20px;
-        font-size: 1rem;
-    }
-
-    .nav-links ul li a:hover { background: #00A651; color: #fff; }
-
-    .nav-links ul ul {
-        flex-direction: column;
-        position: static;
-        background: none;
-        box-shadow: none;
-        padding: 0;
-    }
-
-    @keyframes slideDownMenu {
-        from { opacity: 0; transform: translateY(-20px);}
-        to { opacity: 1; transform: translateY(0);}
-    }
-
-    /* Slideshow */
-    .slider { width: 90%; }
-    .slides img { height: 200px; }
-}
