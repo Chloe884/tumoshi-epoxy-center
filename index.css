@@ -856,3 +856,58 @@ body {
 .dot.active {
     background-color: #1e3c72;
 } */
+ /* Style de base */
+ 
+.navbar {
+  background: #333;
+  padding: 1rem;
+  color: white;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Bouton ⋮ (3 points) */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 1rem;
+    background: #444;
+    padding: 1rem;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
