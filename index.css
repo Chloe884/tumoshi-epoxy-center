@@ -6,80 +6,46 @@ body {
     min-height: 100vh;
 }
 
-/* ---------------- NAVBAR ---------------- */
-.navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo img {
-    height: 50px;
-}
-
-/* Liens par défaut (grand écran) */
+/* Liens par défaut (desktop) */
 .nav-links ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #ff6600;
-}
-
-/* Bouton ⋮ (mobile seulement) */
+/* Bouton ⋮ caché par défaut */
 .menu-toggle {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
-    user-select: none;
-    color: white;
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
 }
 
-/* ------- Responsive ------- */
+/* Responsive */
 @media (max-width: 768px) {
-    /* cacher les liens */
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        background: #444;
-        padding: 1rem;
-        border-radius: 8px;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    /* afficher quand actif */
-    .nav-links.show {
-        display: flex;
-    }
-
-    /* afficher ⋮ */
-    .menu-toggle {
-        display: block;
-    }
+  .nav-links {
+    display: none; /* caché par défaut */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #444;
+    padding: 1rem;
+    border-radius: 8px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
 }
+
 
 
 .hero {
