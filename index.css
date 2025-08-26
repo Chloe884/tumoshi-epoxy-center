@@ -857,11 +857,11 @@ body {
     background-color: #1e3c72;
 } */
  /* Style de base */
- 
+
 .navbar {
   background: #333;
   padding: 1rem;
-  color: white;
+  color: #fff;
 }
 
 .navbar-container {
@@ -896,7 +896,7 @@ body {
     position: absolute;
     top: 70px;
     right: 1rem;
-    background: #444;
+    background: white;
     padding: 1rem;
     border-radius: 8px;
     flex-direction: column;
