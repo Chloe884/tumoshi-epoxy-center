@@ -578,7 +578,7 @@ body {
         bottom: -4px;
     }
     #menuToggle {
-        margin-left: auto;   /* pousse le bouton complètement à droite */
+        margin-left: 100%;   /* pousse le bouton complètement à droite */
         display: none;       /* reste caché par défaut */
         font-size: 26px;
         cursor: pointer;
