@@ -99,33 +99,36 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ------------------ Choix de la langue ------------------
+  document.addEventListener("DOMContentLoaded", function () {
   const langToggle = document.getElementById("langToggle");
-  let currentLang = localStorage.getItem("lang") || "fr"; 
+  if (!langToggle) return;
 
-  // Initialise le bouton (la page sera traduite par lang.js au chargement)
-  if (langToggle) {
+  // Récupère la langue actuelle depuis localStorage
+  let currentLang = localStorage.getItem("lang") || "fr";
+
+  // Initialise le texte du bouton
+  langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
+
+  // Gestion du clic
+  langToggle.addEventListener("click", e => {
+    e.preventDefault();
+
+    // Bascule la langue
+    currentLang = (currentLang === "fr") ? "en" : "fr";
+
+    // Sauvegarde dans localStorage
+    localStorage.setItem("lang", currentLang);
+
+    // Met à jour le bouton
     langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
 
-    // Gestion du clic pour changer la langue
-    langToggle.addEventListener("click", (e) => {
-      e.preventDefault();
+    // Met à jour l'attribut lang
+    document.documentElement.lang = currentLang;
 
-      // Bascule la langue
-      currentLang = (currentLang === "fr") ? "en" : "fr";
-
-      // Sauvegarde dans localStorage
-      localStorage.setItem("lang", currentLang);
-
-      // Met à jour le bouton
-      langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
-
-      // Définit l'attribut lang de la page
-      document.documentElement.lang = currentLang;
-
-      // Traduit la page immédiatement
-      if (typeof translatePage === "function") {
-        translatePage(currentLang);
-      }
-    });
-  }
+    // Traduit la page immédiatement
+    if (typeof translatePage === "function") {
+      translatePage(currentLang);
+    }
+  });
+});
 });
