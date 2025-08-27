@@ -103,6 +103,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const langToggle = document.getElementById("langToggle");
   if (!langToggle) return;
 
+  // Récupère la langue actuelle
+  let currentLang = localStorage.getItem("lang") || "fr";
+
+  // Fonction pour mettre à jour le texte du bouton
+  function updateLangButton() {
+    langToggle.textContent = currentLang === "fr" ? "🌐En" : "🌐Fr";
+  }
+
+  // Applique le texte initial
+  updateLangButton();
+
+  // Traduit la page au chargement
+  if (typeof translatePage === "function") {
+    translatePage(currentLang);
+  }
+
+  // Gestion du clic
+  langToggle.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Bascule la langue
+    currentLang = currentLang === "fr" ? "en" : "fr";
+
+    // Sauvegarde dans localStorage
+    localStorage.setItem("lang", currentLang);
+
+    // Met à jour le bouton
+    updateLangButton();
+
+    // Change l'attribut lang de la page
+    document.documentElement.lang = currentLang;
+
+    // Traduit la page immédiatement
+    if (typeof translatePage === "function") {
+      translatePage(currentLang);
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const langToggle = document.getElementById("langToggle");
+  if (!langToggle) return;
+
   // Récupère la langue actuelle depuis localStorage
   let currentLang = localStorage.getItem("lang") || "fr";
 
