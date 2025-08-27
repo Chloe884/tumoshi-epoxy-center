@@ -192,7 +192,7 @@ body {
 /* Caption */
 .slideshow-caption {
     position: absolute;
-    top: 51%;
+    top: 58%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
