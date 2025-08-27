@@ -128,3 +128,11 @@ function translatePage(lang) {
 
 // Applique la traduction au chargement
 translatePage(savedLang);
+
+document.getElementById('langToggle').addEventListener('click', function() {
+  // Bascule la langue
+  const newLang = (document.documentElement.lang === 'fr') ? 'en' : 'fr';
+  localStorage.setItem('lang', newLang);
+  document.documentElement.lang = newLang;
+  translatePage(newLang);
+});
