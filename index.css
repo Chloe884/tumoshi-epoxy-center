@@ -119,15 +119,15 @@ body {
   }
 
   .nav-links ul {
-    display: none; /* caché par défaut */
+    display: none; 
     flex-direction: column;
     background: #fff;
     position: absolute;
     top: 90px;
-    right: 0;
+    right: 0; 
     width: 220px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    border-radius: 12px 0 0 12px; 
+    box-shadow: -4px 4px 16px rgba(0,0,0,0.18); 
     padding: 10px 0;
     z-index: 1000;
   }
@@ -143,6 +143,7 @@ body {
     font-size: 1rem;
     color: #1e3c72;
     font-weight: 600;
+    text-align: right; 
   }
 
   .nav-links ul li a:hover {
@@ -155,6 +156,7 @@ body {
     100% { opacity: 1; transform: translateY(0); }
   }
 }
+
 
 /* ===========================================
    HERO / DIAPORAMA PRINCIPAL
