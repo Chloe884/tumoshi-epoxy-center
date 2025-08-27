@@ -121,6 +121,7 @@ body {
   .nav-links ul {
     display: none; 
     flex-direction: column;
+    align-items: flex-end;
     background: #fff;
     position: absolute;
     top: 90px;
