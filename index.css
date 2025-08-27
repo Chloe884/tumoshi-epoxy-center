@@ -71,7 +71,7 @@ body {
     transition: background-color 0.3s ease, color 0.2s;
     background-color: transparent; /* couleur initiale */
     display: inline-block;          /* largeur adaptée au texte */
-    text-align: center;             /* centre le texte */
+   /* text-align: center;             /* centre le texte */
     white-space: nowrap;            /* empêche le texte de se casser */
 }
 
