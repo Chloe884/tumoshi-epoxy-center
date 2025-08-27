@@ -97,4 +97,22 @@ document.addEventListener("DOMContentLoaded", function () {
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("show");
   });
+   const langToggle = document.getElementById("langToggle");
+  let currentLang = "fr";
+
+  langToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (currentLang === "fr") {
+      
+      currentLang = "en";
+      langToggle.textContent = "🌐Fr"; 
+      document.documentElement.lang = "en"; 
+    } else {
+    
+      currentLang = "fr";
+      langToggle.textContent = "🌐En";
+      document.documentElement.lang = "fr";
+    }
+  });
 });
