@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
+    <script src="lang.js"></script>
 </head>
 <body>
     <header class="navbar">
@@ -20,12 +21,11 @@
     <nav class="nav-links">
       <button id="menuToggle" class="menu-btn">&#8942;</button>
       <ul id="navLinks" class="dropdown-menu">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#galerie">Galerie</a></li>
-        <li><a href="#avis">Avis</a></li>
-        <li><a href="contact/contact.html">Contact</a></li>
+        <li data-key="services_label"><a href="#services">Services</a></li>
+        <li data-key="galerie_label"><a href="#galerie">Galerie</a></li>
+        <li data-key="avis_label"><a href="#avis">Avis</a></li>
+        <li data-key="contact_label"><a href="contact/contact.html">Contact</a></li>
 
-        
         <li><a href="#" id="langToggle">🌐En</a></li>
       </ul>
     </nav>
@@ -40,34 +40,34 @@
         <img class="slide" src="assets/x.jpg" alt="Slide 4">
     </div>
     <div class="slideshow-caption">
-        <h1>Transformez vos espaces comme vous le souhaitez</h1>
-        <p style="color: #1d3557;">Des solutions sur mesure pour optimiser, personnaliser et sublimer votre espace.</p>
-        <a href="contact/contact.html" class="cta-btn">Contactez-nous</a>
+        <h1 data-key="slideshow_title">Transformez vos espaces comme vous le souhaitez</h1>
+        <p style="color: #1d3557;" data-key="slideshow_text">Des solutions sur mesure pour optimiser, personnaliser et sublimer votre espace.</p>
+        <a href="contact/contact.html" class="cta-btn" data-key="slideshow_cta">Contactez-nous</a>
     </div>
 </section>
 
     <section id="services" class="services">
-    <h2>Nos Services</h2>
+    <h2 data-key="services_title">Nos Services</h2>
     <div class="services-list">
         <!-- Service 1 -->
         <div class="service-card" data-service="service1">
             <img src="assets/p.jpg" alt="Optimisation">
-            <h3>Revêtement avec résine epoxy</h3>
-            <p>Des sols résistants, esthétiques et faciles à entretenir.</p>
+            <h3 data-key="service1_title">Revêtement avec résine epoxy</h3>
+            <p data-key="service1_description">Des sols résistants, esthétiques et faciles à entretenir.</p>
         </div>
 
         <!-- Service 2 -->
         <div class="service-card" data-service="service2">
             <img src="assets/e.jpg" alt="Rangement">
-            <h3>Formation en résine époxy</h3>
-            <p>Nous vous proposons des formations professionnelles dans nos locaux.</p>
+            <h3 data-key="service2_title">Formation en résine époxy</h3>
+            <p data-key="service2_description">Nous vous proposons des formations professionnelles dans nos locaux.</p>
         </div>
 
         <!-- Service 3 -->
         <div class="service-card" data-service="service3">
             <img src="assets/i.jpg" alt="Sol">
-            <h3>Vente des matériels</h3>
-            <p>Du matériel de base pour les débutants.</p>
+            <h3 data-key="service3_title">Vente des matériels</h3>
+            <p data-key="service3_description">Du matériel de base pour les débutants.</p>
         </div>
     </div>
 </section>
@@ -77,7 +77,7 @@
 <div id="modal-service1" class="service-modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Revêtement avec résine epoxy</h3>
+        <h3 data-key="service1_title">Revêtement avec résine epoxy</h3>
         <div class="gallery">
             <img src="assets/a.jpg" alt="Revêtement 1">
             <img src="assets/tr.jpg" alt="Revêtement 2">
@@ -93,7 +93,7 @@
 <div id="modal-service2" class="service-modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Formation en résine époxy</h3>
+        <h3 data-key="service2_title">Formation en résine époxy</h3>
         <div class="gallery">
             <img src="assets/ab.jpg" alt="Formation 1">
             <img src="assets/c.jpg" alt="Formation 2">
@@ -106,7 +106,7 @@
 <div id="modal-service3" class="service-modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Vente des matériels</h3>
+        <h3 data-key="service3_title">Vente des matériels</h3>
         <div class="gallery">
             <img src="assets/b.jpg" alt="Matériel 1">
             <img src="assets/j.jpg" alt="Matériel 2">
@@ -116,7 +116,7 @@
 </div>
 
     <section id="galerie" class="galerie">
-    <h2>Galerie des Réalisations</h2>
+    <h2 data-key="gallery_title">Galerie des Réalisations</h2>
     <div class="slider">
         <div class="slides">
             <img src="assets/a.jpg" alt="Réalisation 1">
@@ -133,15 +133,15 @@
 
 
     <section id="avis" class="avis">
-        <h2>Pourquoi nous?</h2>
+        <h2 data-key="reviews_title">Pourquoi nous?</h2>
         <div class="avis-list">
             <div class="avis-card">
-                <p>“Nous sommes une equipe de professionnel engagés”</p>
-                <span>- team tumoshi</span>
+                <p data-key="review1_text">“Nous sommes une equipe de professionnel engagés”</p>
+                <span data-key="review1_author">- team tumoshi</span>
             </div>
             <div class="avis-card">
-                <p>“Nous travaillons avec du materiel de très haute qualité”</p>
-                <span>- team tumoshi</span>
+                <p data-key="review2_text">“Nous travaillons avec du materiel de très haute qualité”</p>
+                <span data-key="review2_author">- team tumoshi</span>
             </div>
         </div>
     </section>
@@ -151,11 +151,11 @@
         <img src="assets/logo.jpg" alt="Logo">
     </div>
     <ul>
-                    <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#services">Nos Services</a></li>
-                    <li><a href="#galerie">Galerie Réalisations</a></li>
-                    <li><a href="#avis">Pourquoi nous?</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#hero" data-key="home_link">Accueil</a></li>
+                    <li><a href="#services" data-key="services_link">Nos Services</a></li>
+                    <li><a href="#galerie" data-key="gallery_link">Galerie Réalisations</a></li>
+                    <li><a href="#avis" data-key="reviews_link">Pourquoi nous?</a></li>
+                    <li><a href="#contact" data-key="contact_link">Contact</a></li>
                     </ul>
     <div class="hero-image">
         <img src="assets/t.jpg" alt="Illustration">
@@ -164,7 +164,7 @@
 
 
     <footer class="footer">
-        <p>&copy; 2025 Tumoshi epoxy's center. Tous droits réservés.</p>
+        <p data-key="footer_text1">&copy; 2025 Tumoshi epoxy's center. Tous droits réservés.</p>
         <div class="footer-socials">
             <a href="https://www.facebook.com/share/15DHmPn3DG5/" target="_blank" aria-label="Facebook">
                 <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" class="social-icon"/>
