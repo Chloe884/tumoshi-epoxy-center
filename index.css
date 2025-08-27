@@ -103,30 +103,40 @@ body {
 
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
+  /* Affiche le bouton hamburger */
+  .menu-btn {
+    display: block;
+  }
+
+  /* Menu mobile */
   .nav-links {
-    display: none;
+    display: none;                /* caché par défaut */
     flex-direction: column;
     background: #fff;
     position: absolute;
-    top: 90px; /* même hauteur que la navbar */
-    right: 0;
+    top: 90px;                    /* juste en dessous de la navbar */
+    right: 20px;                  /* petit décalage du bord */
     width: 220px;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
     padding: 10px 0;
     z-index: 1000;
     overflow: hidden;
+  }
+
+  /* Affiche le menu quand .active est ajouté */
+  .nav-links.active {
+    display: flex;
     animation: slideDownMenu 0.3s ease forwards;
   }
 
-  .nav-links.active {
-    display: flex;
-  }
-
+  /* Liens du menu */
   .nav-links a {
     display: block;
     padding: 12px 20px;
     font-size: 1rem;
+    color: #1e3c72;
+    font-weight: 600;
   }
 
   .nav-links a:hover {
@@ -134,14 +144,12 @@ body {
     color: #fff;
   }
 
+  /* Animation slide down */
   @keyframes slideDownMenu {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 }
-
-
-
 
 /* ===========================================
    HERO / DIAPORAMA PRINCIPAL
