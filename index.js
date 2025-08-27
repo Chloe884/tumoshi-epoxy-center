@@ -99,78 +99,63 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ------------------ Choix de la langue ------------------
-  document.addEventListener("DOMContentLoaded", function () {
   const langToggle = document.getElementById("langToggle");
-  if (!langToggle) return;
+  if (langToggle) {
+    let currentLang = localStorage.getItem("lang") || "fr";
 
-  // Récupère la langue actuelle
-  let currentLang = localStorage.getItem("lang") || "fr";
+    function updateLangButton() {
+      langToggle.textContent = currentLang === "fr" ? "🌐En" : "🌐Fr";
+    }
 
-  // Fonction pour mettre à jour le texte du bouton
-  function updateLangButton() {
-    langToggle.textContent = currentLang === "fr" ? "🌐En" : "🌐Fr";
-  }
-
-  // Applique le texte initial
-  updateLangButton();
-
-  // Traduit la page au chargement
-  if (typeof translatePage === "function") {
-    translatePage(currentLang);
-  }
-
-  // Gestion du clic
-  langToggle.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    // Bascule la langue
-    currentLang = currentLang === "fr" ? "en" : "fr";
-
-    // Sauvegarde dans localStorage
-    localStorage.setItem("lang", currentLang);
-
-    // Met à jour le bouton
     updateLangButton();
-
-    // Change l'attribut lang de la page
     document.documentElement.lang = currentLang;
 
-    // Traduit la page immédiatement
-    if (typeof translatePage === "function") {
-      translatePage(currentLang);
-    }
-  });
-});
-document.addEventListener("DOMContentLoaded", function () {
-  const langToggle = document.getElementById("langToggle");
-  if (!langToggle) return;
+    if (typeof translatePage === "function") translatePage(currentLang);
 
-  // Récupère la langue actuelle depuis localStorage
-  let currentLang = localStorage.getItem("lang") || "fr";
+    langToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      currentLang = currentLang === "fr" ? "en" : "fr";
+      localStorage.setItem("lang", currentLang);
+      updateLangButton();
+      document.documentElement.lang = currentLang;
+      if (typeof translatePage === "function") translatePage(currentLang);
+    });
+  }
 
-  // Initialise le texte du bouton
-  langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
+  // ------------------ Traduction Français/Anglais ------------------
+  function translatePage(lang) {
+    // Exemple de dictionnaire de traduction
+    const translations = {
+      fr: {
+        accueil: "Accueil",
+        services: "Nos Services",
+        galerie: "Galerie Réalisations",
+        avis: "Avis clients",
+        contact: "Contact",
+        heroTitle: "Transformez votre garage en espace de rêve",
+        heroText: "Solutions sur mesure pour optimiser, organiser et sublimer votre garage.",
+        cta: "Demander un devis"
+        // Ajoute d'autres clés/valeurs ici selon tes besoins
+      },
+      en: {
+        accueil: "Home",
+        services: "Our Services",
+        galerie: "Gallery",
+        avis: "Testimonials",
+        contact: "Contact",
+        heroTitle: "Transform your garage into a dream space",
+        heroText: "Custom solutions to optimize, organize and enhance your garage.",
+        cta: "Request a quote"
+        // Ajoute d'autres clés/valeurs ici selon tes besoins
+      }
+    };
 
-  // Gestion du clic
-  langToggle.addEventListener("click", e => {
-    e.preventDefault();
-
-    // Bascule la langue
-    currentLang = (currentLang === "fr") ? "en" : "fr";
-
-    // Sauvegarde dans localStorage
-    localStorage.setItem("lang", currentLang);
-
-    // Met à jour le bouton
-    langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
-
-    // Met à jour l'attribut lang
-    document.documentElement.lang = currentLang;
-
-    // Traduit la page immédiatement
-    if (typeof translatePage === "function") {
-      translatePage(currentLang);
-    }
-  });
-});
+    // Exemple d'application : adapte les sélecteurs à ton HTML
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
 });
