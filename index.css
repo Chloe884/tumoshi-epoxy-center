@@ -45,6 +45,7 @@ body {
     margin-left: 0;
 }
 
+/* Par défaut, en grand écran */
 .nav-links ul {
     list-style: none;
     display: flex;
@@ -58,16 +59,20 @@ body {
     color: #1e3c72;
     font-weight: 600;
     font-size: 1.1rem;
-    padding: 8px 0;
+    padding: 8px 12px;
     position: relative;
-    transition: color 0.2s;
+    transition: background-color 0.3s ease, color 0.2s;
     background-color: transparent; /* couleur initiale */
-    transition: background-color 0.3s ease; /* transition douce */
 }
 
-.nav-links a:hover {
-     background-color: #3498db; /* couleur au survol */
+/* Effet hover desktop + mobile */
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:active {
+    background-color: #1e3b72d5;
+    color: white;
 }
+
 .nav-links a.active {
     color: #FFD700;
 }
@@ -85,7 +90,7 @@ body {
     bottom: -4px;
 }
 
-/* Menu bouton hamburger */
+/* Bouton hamburger caché par défaut */
 .menu-btn {
     display: none;
     background: none;
@@ -95,6 +100,42 @@ body {
     color: #1e3c72;
     z-index: 1001;
 }
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    /* Menu caché au départ */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        background: #f8f8f8;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+    }
+
+    /* Quand menu actif → visible */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 
 /* ===========================================
    HERO / DIAPORAMA PRINCIPAL
