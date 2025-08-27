@@ -94,31 +94,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("show");
-});
-const langToggle = document.getElementById("langToggle");
-let currentLang = localStorage.getItem("lang") || "fr"; 
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+  });
+    const langToggle = document.getElementById("langToggle");
+  let currentLang = localStorage.getItem("lang") || "fr"; 
 
-// ------------------ choix de la langue ------------------
-
-// Initialise la page et le bouton
-document.documentElement.lang = currentLang;
-langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
-
-// Traduit la page au chargement
-translatePage(currentLang);
-
-// Gestion du clic pour changer la langue
-langToggle.addEventListener("click", (e) => {
-  e.preventDefault();
-  currentLang = (currentLang === "fr") ? "en" : "fr";
-  localStorage.setItem("lang", currentLang);
-  langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
+  // ------------------ choix de la langue ------------------
   document.documentElement.lang = currentLang;
-  
-  // Applique la traduction immédiatement
-  translatePage(currentLang);
-});
+  langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
 
+  langToggle.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    currentLang = (currentLang === "fr") ? "en" : "fr";
+    localStorage.setItem("lang", currentLang);
+    langToggle.textContent = (currentLang === "fr") ? "🌐En" : "🌐Fr";
+    document.documentElement.lang = currentLang;
+
+  });
 });
