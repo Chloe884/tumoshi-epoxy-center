@@ -117,7 +117,6 @@ const translations = {
   }
 };
 
-// Fonction pour traduire la page
 function translatePage(lang) {
   document.querySelectorAll("[data-key]").forEach(el => {
     const key = el.getAttribute("data-key");
