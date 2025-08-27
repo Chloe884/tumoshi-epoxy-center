@@ -70,6 +70,9 @@ body {
     position: relative;
     transition: background-color 0.3s ease, color 0.2s;
     background-color: transparent; /* couleur initiale */
+    display: inline-block;          /* largeur adaptée au texte */
+    text-align: center;             /* centre le texte */
+    white-space: nowrap;            /* empêche le texte de se casser */
 }
 
 /* Effet hover desktop + mobile */
@@ -109,68 +112,62 @@ body {
 }
 
 /* ----- Responsive ----- */
-/* Menu mobile */
-.menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  color: #1e3c72;
-  z-index: 1001;
-}
-
 @media (max-width: 768px) {
-  .menu-btn {
-    display: block;
-  }
+    .menu-btn {
+        display: block;
+    }
 
-  .nav-links ul {
-    display: none; 
-    flex-direction: column;
-    align-items: flex-end;
-    background: #fff;
-    position: absolute;
-    top: 90px;
-    right: 0; 
-    width: 220px;
-    border-radius: 12px 0 0 12px; 
-    box-shadow: -4px 4px 16px rgba(0,0,0,0.18); 
-    padding: 10px 0;
-    z-index: 1000;
-  }
+    .nav-links ul {
+        display: none; 
+        flex-direction: column;
+        align-items: center;      /* centre tous les items */
+        background: #fff;
+        position: absolute;
+        top: 90px;
+        right: 0; 
+        width: auto;              /* largeur s’adapte au contenu */
+        min-width: 160px;         /* largeur minimale pour esthétique */
+        border-radius: 12px 0 0 12px; 
+        box-shadow: -4px 4px 16px rgba(0,0,0,0.18); 
+        padding: 10px 0;
+        z-index: 1000;
+    }
 
-  .nav-links ul.active {
-    display: flex;
-    animation: slideDownMenu 0.3s ease forwards;
-  }
+    .nav-links ul.active {
+        display: flex;
+        animation: slideDownMenu 0.3s ease forwards;
+    }
 
-  .nav-links ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    .nav-links ul li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;              /* chaque item prend toute la largeur du menu */
+    }
 
-  .nav-links ul li a {
-    display: block;
-    padding: 12px 20px;
-    text-align: center;
-    border-radius: 6px;
-    transition: background-color 0.3s, color 0.3s;
-    color: #1e3c72;
-    background-color: transparent;
-  }
+    .nav-links ul li a {
+        display: inline-block;    /* largeur adaptée au texte */
+        width: auto;              /* supprime largeur fixe */
+        padding: 10px 16px;       /* padding réduit et net */
+        text-align: center;
+        border-radius: 6px;
+        transition: background-color 0.3s, color 0.3s;
+        color: #1e3c72;
+        background-color: transparent;
+        white-space: nowrap;
+    }
 
-  .nav-links ul li a:hover {
-    background: #00A651;
-    color: #fff;
-  }
+    .nav-links ul li a:hover {
+        background: #00A651;
+        color: #fff;
+    }
 
-  @keyframes slideDownMenu {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-  }
+    @keyframes slideDownMenu {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
 }
+
 
 
 /* ===========================================
