@@ -61,10 +61,13 @@ body {
     padding: 8px 0;
     position: relative;
     transition: color 0.2s;
-    background: yellowgreen;
+    background-color: transparent; /* couleur initiale */
+    transition: background-color 0.3s ease; /* transition douce */
 }
 
-.nav-links a:hover,
+.nav-links a:hover {
+     background-color: #3498db; /* couleur au survol */
+}
 .nav-links a.active {
     color: #FFD700;
 }
