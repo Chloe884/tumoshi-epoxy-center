@@ -145,13 +145,20 @@ body {
     animation: slideDownMenu 0.3s ease forwards;
   }
 
+  .nav-links ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .nav-links ul li a {
     display: block;
     padding: 12px 20px;
-    font-size: 1rem;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.3s, color 0.3s;
     color: #1e3c72;
-    font-weight: 600;
-    text-align: right; 
+    background-color: transparent;
   }
 
   .nav-links ul li a:hover {
