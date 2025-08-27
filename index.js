@@ -91,12 +91,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ------------------ Menu déroulant responsive ------------------
-  const menuBtn = document.querySelector('.menu-btn');
-  const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-  menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
 
   // ------------------ Choix de la langue ------------------
   const langToggle = document.getElementById("langToggle");

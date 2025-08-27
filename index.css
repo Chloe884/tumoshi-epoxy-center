@@ -102,36 +102,42 @@ body {
 }
 
 /* ----- Responsive ----- */
+/* Menu mobile */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  color: #1e3c72;
+  z-index: 1001;
+}
+
 @media (max-width: 768px) {
-  /* Affiche le bouton hamburger */
   .menu-btn {
     display: block;
   }
 
-  /* Menu mobile */
-  .nav-links {
-    display: none;                /* caché par défaut */
+  .nav-links ul {
+    display: none; /* caché par défaut */
     flex-direction: column;
     background: #fff;
     position: absolute;
-    top: 90px;                    /* juste en dessous de la navbar */
-    right: 20px;                  /* petit décalage du bord */
+    top: 90px;
+    right: 20px;
     width: 220px;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
     padding: 10px 0;
     z-index: 1000;
-    overflow: hidden;
   }
 
-  /* Affiche le menu quand .active est ajouté */
-  .nav-links.active {
+  .nav-links ul.active {
     display: flex;
     animation: slideDownMenu 0.3s ease forwards;
   }
 
-  /* Liens du menu */
-  .nav-links a {
+  .nav-links ul li a {
     display: block;
     padding: 12px 20px;
     font-size: 1rem;
@@ -139,12 +145,11 @@ body {
     font-weight: 600;
   }
 
-  .nav-links a:hover {
+  .nav-links ul li a:hover {
     background: #00A651;
     color: #fff;
   }
 
-  /* Animation slide down */
   @keyframes slideDownMenu {
     0% { opacity: 0; transform: translateY(-20px); }
     100% { opacity: 1; transform: translateY(0); }
