@@ -104,26 +104,42 @@ body {
 /* ----- Responsive ----- */
 @media (max-width: 768px) {
   .nav-links {
-    display: none; /* caché par défaut */
+    display: none;
     flex-direction: column;
-    background: #f8f8f8;
+    background: #fff;
     position: absolute;
-    top: 60px;
+    top: 90px; /* même hauteur que la navbar */
     right: 0;
-    width: 200px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 220px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    padding: 10px 0;
     z-index: 1000;
+    overflow: hidden;
+    animation: slideDownMenu 0.3s ease forwards;
   }
 
   .nav-links.active {
-    display: flex; /* 👉 s’affiche quand .active est ajouté par le JS */
+    display: flex;
   }
 
   .nav-links a {
     display: block;
     padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .nav-links a:hover {
+    background: #00A651;
+    color: #fff;
+  }
+
+  @keyframes slideDownMenu {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
+
 
 
 
